@@ -488,18 +488,18 @@
 
     .checkout-overlay { position:fixed; top:0; left:0; width:100%; height:100dvh; background:rgba(0,0,0,0.55); backdrop-filter:blur(var(--blur-overlay)); -webkit-backdrop-filter:blur(var(--blur-overlay)); z-index:var(--z-modal); display:none; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity var(--dur-graceful) var(--ease-out); padding:var(--space-md); }
     .checkout-overlay.open { display:flex; opacity:1; pointer-events:auto; }
-    .checkout-card { background:var(--color-bg-light); max-width:480px; width:100%; padding:var(--space-xl); transform:scale(0.92) translateY(25px); transition:transform var(--dur-graceful) var(--ease-out), background 0.4s ease; box-shadow:var(--shadow-xl); max-height:90dvh; overflow-y:auto; border:1px solid rgba(201,168,124,0.1);  }
+    .checkout-card { background:var(--color-bg-light); max-width:420px; width:100%; padding:var(--space-lg) var(--space-xl); transform:scale(0.92) translateY(25px); transition:transform var(--dur-graceful) var(--ease-out), background 0.4s ease; box-shadow:var(--shadow-xl); max-height:90dvh; overflow-y:auto; border:1px solid rgba(201,168,124,0.1); }
     .checkout-overlay.open .checkout-card { transform:scale(1) translateY(0); }
-    .checkout-card h2 { font-family:'DM Sans',sans-serif; font-size:var(--text-lg); font-weight:500; margin-bottom:var(--space-2xs); letter-spacing:var(--track-tight); }
-    .checkout-card .sub { color:var(--color-text-soft); font-size:var(--text-sm); margin-bottom:var(--space-lg); font-weight:300; }
-    .checkout-card .summary-item { display:flex; justify-content:space-between; padding:var(--space-xs) 0; border-bottom:1px solid rgba(0,0,0,0.04); font-size:var(--text-base); font-weight:400; }
-    .checkout-card .summary-item.total { border-top:2px solid var(--color-gold); border-bottom:none; padding-top:var(--space-sm); margin-top:var(--space-2xs); font-weight:500; font-size:var(--text-md); color:var(--color-text); }
-    .checkout-card .form-group { margin-top:var(--space-md); }
-    .checkout-card .form-group label { display:block; font-size:var(--text-xs); text-transform:uppercase; letter-spacing:var(--track-wide); color:var(--color-text-soft); margin-bottom:var(--space-3xs); font-weight:500; }
-    .checkout-card .form-group input { width:100%; padding:var(--space-xs) 0; border:none; border-bottom:1.5px solid var(--color-border); font-size:var(--text-base); outline:none; background:transparent; transition:border-color var(--dur-quick) var(--ease-smooth), color 0.4s ease; }
+    .checkout-card h2 { font-family:'DM Sans',sans-serif; font-size:var(--text-lg); font-weight:500; margin-bottom:var(--space-3xs); letter-spacing:var(--track-tight); }
+    .checkout-card .sub { color:var(--color-text-soft); font-size:var(--text-xs); margin-bottom:var(--space-md); font-weight:300; }
+    .checkout-card .summary-item { display:flex; justify-content:space-between; padding:var(--space-2xs) 0; border-bottom:1px solid rgba(0,0,0,0.04); font-size:var(--text-sm); font-weight:400; }
+    .checkout-card .summary-item.total { border-top:2px solid var(--color-gold); border-bottom:none; padding-top:var(--space-xs); margin-top:var(--space-2xs); font-weight:500; font-size:var(--text-sm); color:var(--color-text); }
+    .checkout-card .form-group { margin-top:var(--space-sm); }
+    .checkout-card .form-group label { display:block; font-size:var(--text-3xs); text-transform:uppercase; letter-spacing:var(--track-wide); color:var(--color-text-soft); margin-bottom:var(--space-3xs); font-weight:500; }
+    .checkout-card .form-group input { width:100%; padding:var(--space-2xs) 0; border:none; border-bottom:1.5px solid var(--color-border); font-size:var(--text-sm); outline:none; background:transparent; transition:border-color var(--dur-quick) var(--ease-smooth), color 0.4s ease; }
     .checkout-card .form-group input:focus { border-bottom-color:var(--color-gold); border-bottom-width:2px; }
-    .checkout-actions { display:flex; gap:var(--space-xs); margin-top:var(--space-lg); }
-    .checkout-actions button { flex:1; padding:var(--space-xs); border:none; font-size:var(--text-sm); font-weight:500; cursor:pointer; transition:all var(--dur-quick) var(--ease-smooth); letter-spacing:var(--track-wide); text-transform:uppercase; border-radius:var(--radius-sm); }
+    .checkout-actions { display:flex; gap:var(--space-xs); margin-top:var(--space-md); }
+    .checkout-actions button { flex:1; padding:var(--space-xs) var(--space-sm); border:none; font-size:var(--text-xs); font-weight:500; cursor:pointer; transition:all var(--dur-quick) var(--ease-smooth); letter-spacing:var(--track-wide); text-transform:uppercase; border-radius:var(--radius-sm); }
     .checkout-actions .btn-confirm { background:var(--color-gold); color:#fff; }
     .checkout-actions .btn-confirm:hover { background:var(--color-gold-dark); transform:scale(1.02); }
     .checkout-actions .btn-cancel { background:var(--color-border); color:var(--color-text); }
@@ -570,7 +570,10 @@
       .gallery-container { padding:clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 4rem); padding-bottom:calc(var(--footer-h) + 3rem); }
     }
 
-    @media (max-width:480px) { .btn-book-room { padding:var(--space-2xs) var(--space-lg); font-size:var(--text-xs); } }
+    @media (max-width:480px) { 
+      .btn-book-room { padding:var(--space-2xs) var(--space-lg); font-size:var(--text-xs); } 
+      .checkout-card { padding:var(--space-md); }
+    }
     @media (pointer:coarse) { .scroll-wrapper { scroll-snap-type:x mandatory; } }
     @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important; } .header,.slide-text,.bottom-bar,.invitation { backdrop-filter:blur(var(--blur-card)); } }
     button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible { outline:2px solid var(--color-gold); outline-offset:2px; }
@@ -578,6 +581,9 @@
   </style>
 </head>
 <body>
+  <!-- BODY CONTENT REMAINS THE SAME AS PREVIOUS COMPLETE CODE -->
+  <!-- ... all the HTML between body tags is identical ... -->
+  
   <div id="preloader" role="status" aria-label="Loading">
     <img class="loader-logo-img" src="https://uloresidency.com/wp-content/uploads/2025/01/cropped-Ulo-White-300x300.png" alt="Ulõ Residency" />
   </div>
@@ -887,9 +893,7 @@
       function triggerEntry(slide){slide.classList.add('slide-enter');}function resetEntry(slide){slide.classList.remove('slide-enter');}
       var entryObs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting)triggerEntry(e.target);else resetEntry(e.target);});},{threshold:0.5,root:scrollWrapper});allSlides.forEach(function(s){entryObs.observe(s);});
 
-      // ============================================================
-      // BOOKING FORM — with proper reset on every close
-      // ============================================================
+      // BOOKING FORM
       var checkoutModal=document.getElementById('checkoutModal'),formSection=document.getElementById('checkoutFormSection'),successSection=document.getElementById('checkoutSuccessSection'),successName=document.getElementById('successName'),successRoom=document.getElementById('successRoom'),successPhone=document.getElementById('successPhone');
 
       function resetCheckoutModal() {
@@ -917,15 +921,9 @@
       });
 
       document.getElementById('checkoutCancel').addEventListener('click', resetCheckoutModal);
-
-      checkoutModal.addEventListener('click', function(e) {
-        if (e.target === checkoutModal) resetCheckoutModal();
-      });
-
+      checkoutModal.addEventListener('click', function(e) { if (e.target === checkoutModal) resetCheckoutModal(); });
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && checkoutModal.classList.contains('open')) {
-          resetCheckoutModal();
-        }
+        if (e.key === 'Escape' && checkoutModal.classList.contains('open')) resetCheckoutModal();
         if (e.key === 'Escape' && bottomBar.classList.contains('expanded')) collapseBar();
       });
 
