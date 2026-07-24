@@ -287,7 +287,7 @@
     .portrait img { width:100%; height:auto; aspect-ratio:16/9; object-fit:cover; border-radius:var(--radius-md); box-shadow:var(--shadow-md); display:block; }
     .signature { text-align:center; margin-top:var(--space-fluid-lg); font-family:'Playfair Display',serif; font-style:italic; font-size:var(--text-3xs); letter-spacing:var(--track-widest); color:var(--color-gold); opacity:0.3; position:relative; z-index:1; padding-top:var(--space-2xs); border-top:1px solid rgba(212,163,115,0.08); width:80%; margin-left:auto; margin-right:auto; }
 
-   /* ---------- Room Slide Text (CC1 proportions) ---------- */
+   /* ---------- Room Slide Text ---------- */
     .slide[data-section="rooms"] .slide-text {
       position:relative; z-index:var(--z-content); color:#fff;
       text-shadow:0 2px 40px rgba(0,0,0,0.5);
@@ -320,7 +320,6 @@
     .btn-book-room:hover { background:var(--color-gold-dark); transform:scale(1.02); box-shadow:var(--shadow-gold); }
     .btn-book-room:active { transform:scale(0.97); }
 
-    /* Mobile adjustments for room text */
     @media (max-width: 1024px) {
       .slide[data-section="rooms"] .slide-text { max-width:70%; padding:2rem 2.5rem; margin-left:2rem; }
     }
@@ -350,12 +349,7 @@
     .masonry-grid { column-count:2; column-gap:var(--space-xs); }
     .masonry-grid .masonry-item { break-inside:avoid; margin-bottom:var(--space-xs); position:relative; cursor:pointer; overflow:hidden; border-radius:var(--radius-md); transition: transform var(--dur-quick) var(--ease-smooth); }
     .masonry-grid .masonry-item:hover { transform:scale(1.015); }
-    .masonry-grid .masonry-item img,.masonry-grid .masonry-item video { width:100%; height:auto; display:block; border-radius:var(--radius-md); }
-    .masonry-grid .video-tile { position:relative; }
-    .masonry-grid .video-tile video { object-fit:cover; filter:brightness(0.7); border-radius:var(--radius-md); }
-    .masonry-grid .video-tile .play-overlay { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:clamp(40px, 8vw, 65px); height:clamp(40px, 8vw, 65px); background:rgba(212,163,115,0.85); border-radius:var(--radius-full); border:none; color:#fff; font-size:clamp(1rem, 2vw, 1.6rem); cursor:pointer; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(var(--blur-subtle)); transition: all var(--dur-quick) var(--ease-smooth); box-shadow:var(--shadow-gold); }
-    .masonry-grid .video-tile .play-overlay:hover { background:var(--color-gold); transform:translate(-50%,-50%) scale(1.08); }
-    .masonry-grid .video-tile .play-overlay.hidden { opacity:0; pointer-events:none; }
+    .masonry-grid .masonry-item img { width:100%; height:auto; display:block; border-radius:var(--radius-md); }
     .gallery-footer { text-align:center; padding:var(--space-lg) 0 var(--space-xs); font-size:var(--text-3xs); text-transform:uppercase; letter-spacing:var(--track-wider); color:rgba(255,255,255,0.25); font-weight:300; }
     .gallery-footer a { color:rgba(255,255,255,0.4); text-decoration:none; transition: color var(--dur-quick) var(--ease-smooth); }
     .gallery-footer a:hover { color:var(--color-gold); }
@@ -492,8 +486,8 @@
     .footer-info a:hover { color:var(--color-gold); border-bottom-color:var(--color-gold); }
     .footer-divider { width:1px; height:12px; background:var(--color-border); display:block; }
 
-    .checkout-overlay { position:fixed; top:0; left:0; width:100%; height:100dvh; background:rgba(0,0,0,0.55); backdrop-filter:blur(var(--blur-overlay)); -webkit-backdrop-filter:blur(var(--blur-overlay)); z-index:var(--z-modal); display:flex; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity var(--dur-graceful) var(--ease-out); padding:var(--space-md); }
-    .checkout-overlay.open { opacity:1; pointer-events:auto; }
+    .checkout-overlay { position:fixed; top:0; left:0; width:100%; height:100dvh; background:rgba(0,0,0,0.55); backdrop-filter:blur(var(--blur-overlay)); -webkit-backdrop-filter:blur(var(--blur-overlay)); z-index:var(--z-modal); display:none; align-items:center; justify-content:center; opacity:0; pointer-events:none; transition:opacity var(--dur-graceful) var(--ease-out); padding:var(--space-md); }
+    .checkout-overlay.open { display:flex; opacity:1; pointer-events:auto; }
     .checkout-card { background:var(--color-bg-light); max-width:480px; width:100%; padding:var(--space-xl); transform:scale(0.92) translateY(25px); transition:transform var(--dur-graceful) var(--ease-out), background 0.4s ease; box-shadow:var(--shadow-xl); max-height:90dvh; overflow-y:auto; border:1px solid rgba(201,168,124,0.1);  }
     .checkout-overlay.open .checkout-card { transform:scale(1) translateY(0); }
     .checkout-card h2 { font-family:'DM Sans',sans-serif; font-size:var(--text-lg); font-weight:500; margin-bottom:var(--space-2xs); letter-spacing:var(--track-tight); }
@@ -777,14 +771,16 @@
           <button class="btn-close-engine" id="btnCloseEngine" aria-label="Close booking">Not yet</button>
         </div>
       </div>
-  
- <div class="footer-info">
-  <a href="https://maps.app.goo.gl/5e6HWiEvPRn4xT3S7" target="_blank" rel="noopener" aria-label="Open location in Google Maps">39A Dr. Ladi Alakija, Lekki Phase 1</a>
-  <span class="footer-divider"></span>
-  <a href="tel:+2349119109461" aria-label="Call Ulõ Residency front desk">Ring us</a>
-  <span class="footer-divider"></span>
-  <a href="https://wa.me/2349119109461?text=Hello%20Ulõ%20👋" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">Say hi</a>
-</div>
+    </div>
+ 
+    <div class="footer-info">
+      <a href="https://maps.app.goo.gl/5e6HWiEvPRn4xT3S7" target="_blank" rel="noopener" aria-label="Open location in Google Maps">39A Dr. Ladi Alakija, Lekki Phase 1</a>
+      <span class="footer-divider"></span>
+      <a href="tel:+2349119109461" aria-label="Call Ulõ Residency front desk">Ring us</a>
+      <span class="footer-divider"></span>
+      <a href="https://wa.me/2349119109461?text=Hello%20Ulõ%20👋" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">Say hi</a>
+    </div>
+  </div>
 
   <div class="checkout-overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Booking confirmation">
     <div class="checkout-card">
@@ -900,15 +896,24 @@
         formSection.style.display = 'block';
         successSection.style.display = 'none';
         checkoutModal.classList.remove('open');
+        setTimeout(function() {
+          if (!checkoutModal.classList.contains('open')) {
+            checkoutModal.style.display = 'none';
+          }
+        }, 600);
       }
 
       document.getElementById('btnBookConfirm').addEventListener('click',function(){
         resetCheckoutModal();
+        checkoutModal.style.display = 'flex';
         var room=activeRoomInput.value,price=parseInt(activeRoomPriceInput.value)||85000;
         if(!room){var fr=document.querySelector('.slide[data-section="rooms"]');if(fr){room=fr.getAttribute('data-room');price=parseInt(fr.getAttribute('data-price'))||85000;}}
         var ci=checkinInput.value,co=checkoutInput.value,gu=document.getElementById('guests').value,nights=Math.max(1,Math.ceil((new Date(co)-new Date(ci))/(86400000)));
         document.getElementById('summaryRoom').textContent=room;document.getElementById('summaryCheckin').textContent=ci||'—';document.getElementById('summaryCheckout').textContent=co||'—';document.getElementById('summaryGuests').textContent=gu;document.getElementById('summaryTotal').textContent='₦'+(price*nights).toLocaleString();
-        checkoutModal.classList.add('open');setTimeout(function(){document.getElementById('guestName').focus();},300);collapseBar();
+        setTimeout(function() {
+          checkoutModal.classList.add('open');
+        }, 10);
+        setTimeout(function(){document.getElementById('guestName').focus();},300);collapseBar();
       });
 
       document.getElementById('checkoutCancel').addEventListener('click', resetCheckoutModal);
